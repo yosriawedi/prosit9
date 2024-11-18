@@ -1,5 +1,41 @@
+import java.util.TreeSet;
 public class Main {
     public static void main(String[] args) {
+        DepartementHashSet gestionDepartements = new DepartementHashSet();
+
+        Departement dep1 = new Departement(1, "Informatique", 58);
+        Departement dep2 = new Departement(2, "Finance", 23);
+        Departement dep3 = new Departement(3, "Télécom", 12);
+
+        // Ajouter des départements
+        gestionDepartements.ajouterDepartement(dep1);
+        gestionDepartements.ajouterDepartement(dep2);
+        gestionDepartements.ajouterDepartement(dep3);
+
+        // Afficher les départements
+        System.out.println("Liste des départements :");
+        gestionDepartements.displayDepartement();
+
+        // Rechercher un département par nom
+        System.out.println("Recherche par nom : Informatique -> " +
+                gestionDepartements.rechercherDepartement("Informatique"));
+
+        // Supprimer un département
+        gestionDepartements.supprimerDepartement(dep2);
+
+        // Afficher les départements après suppression
+        System.out.println("Liste après suppression :");
+        gestionDepartements.displayDepartement();
+
+        // Trier les départements par ID
+        System.out.println("Départements triés par ID :");
+        TreeSet<Departement> sortedDepartements = gestionDepartements.trierDepartementById();
+        for (Departement d : sortedDepartements) {
+            System.out.println(d);
+        }
+
+
+
         // Création d'une société
         SocieteArrayList societe = new SocieteArrayList();
 
@@ -31,4 +67,5 @@ public class Main {
         System.out.println("Liste après suppression de 'Jean Dupont' : ");
         societe.displayEmploye();
     }
+
 }
